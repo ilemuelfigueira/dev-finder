@@ -14,7 +14,17 @@ export async function searchGitUsers(query: string) {
   const options: AxiosRequestConfig = {
     method: "GET",
     url: `https://api.github.com/search/users?${query}`,
-    // url: `https://api.github.com/search/users?q=${search}&per_page=${limit}`,
+  };
+
+  const { data } = await axios(options);
+
+  return data;
+}
+
+export async function downloadUserProfile(username: string) {
+  const options: AxiosRequestConfig = {
+    method: "GET",
+    url: `https://api.github.com/users/${username}`,
   };
 
   const { data } = await axios(options);
