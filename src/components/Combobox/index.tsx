@@ -3,11 +3,11 @@ import { BsSearch } from "react-icons/bs";
 import clsx from "clsx";
 
 import { useCombobox } from "./index.hook";
-import { ComboboxProps } from "./index.types";
+
 import "./index.styles.scss";
 
-export function Combobox({ onChange }: ComboboxProps) {
-  const { formik, handleClose, isOpen, onClickUser, options } = useCombobox({ onChange });
+export function Combobox() {
+  const { formik, handleClose, isOpen, onClickUser, options } = useCombobox();
 
   return (
     <div id="container">
@@ -38,7 +38,7 @@ export function Combobox({ onChange }: ComboboxProps) {
         onBlur={() => handleClose()}
       >
         {options.map((option) => (
-          <div className="option" key={option.login} onClick={() => onClickUser(option.login)}>
+          <div className="option" key={option.login} onClick={() => onClickUser(option.html_url)}>
             <img src={option.avatar_url} alt="user-image" srcSet="" />
             <span className="user-name">{option.login}</span>
           </div>

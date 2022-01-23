@@ -4,11 +4,11 @@ import { useFormik } from "formik";
 import * as querystring from "querystring";
 import * as yup from "yup";
 
-import { downloadUserProfile, searchGitUsers } from "services/api";
+import { searchGitUsers } from "services/api";
 
-import { ComboboxHookProps, GitUser } from "./index.types";
+import { GitUser } from "./index.types";
 
-export function useCombobox({ onChange }: ComboboxHookProps) {
+export function useCombobox() {
   const [isOpen, setIsOpen] = useState(false);
   const [options, setOptions] = useState<GitUser[]>([]);
 
@@ -41,12 +41,8 @@ export function useCombobox({ onChange }: ComboboxHookProps) {
     setIsOpen(false);
   }
 
-  async function onClickUser(username: string) {
-    const user = await downloadUserProfile(username);
-
-    onChange(user);
-
-    handleClose();
+  function onClickUser(url: string) {
+    window.open(url, "_blank");
   }
 
   return {

@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-import { GitUserResult } from "pages/Home/index.types";
-
 export type GitUser = {
   login: string;
   id: number;
@@ -21,12 +18,4 @@ export type GitUser = {
   type: string;
   site_admin: boolean;
   score: number;
-};
-
-export type ComboboxHookProps = {
-  onChange: (user: GitUserResult) => void;
-};
-
-export type ComboboxProps = {
-  onChange: (user: GitUserResult) => void;
 };
