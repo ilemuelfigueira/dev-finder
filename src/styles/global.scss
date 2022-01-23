@@ -8,6 +8,26 @@
   letter-spacing: 0.05rem;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: .4rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--btn);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--btn-hover);
+}
+
 body {
   background: #f8f8f8;
   color: #29292e
@@ -33,6 +53,8 @@ $font-size-xl:                $font-size-base * 1.35;
   --lm-icon-bg: brightness(100%);
   --btn: #0079FF;
   --btn-hover: #60ABFF;
+  --br: 0.8rem;
+  --br-circle: 50%;
 }
 
 [data-theme='dark'] {

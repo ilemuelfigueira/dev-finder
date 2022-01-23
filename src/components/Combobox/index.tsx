@@ -1,15 +1,49 @@
 import { BsSearch } from "react-icons/bs";
 
+import clsx from "clsx";
+
+import { useCombobox } from "./index.hook";
+
 import "./index.styles.scss";
 
 export function Combobox() {
+  const { formik, handleClose, isOpen, onClickUser, options } = useCombobox();
+
   return (
-    <div id="combobox">
-      <div className="icon-container">
-        <BsSearch className="icon" />
+    <div id="container">
+      <div id="search-container">
+        <div className="icon-container">
+          <BsSearch className="icon" />
+        </div>
+        <input
+          type="text"
+          name="q"
+          onKeyPress={(e) => {
+            if (e.key === "Enter") formik.handleSubmit();
+          }}
+          onChange={formik.handleChange}
+          placeholder="Search"
+          value={formik.values.q}
+        />
+        <button className="global-button" onClick={() => formik.handleSubmit()}>
+          Search
+        </button>
       </div>
-      <input type="text" placeholder="Search" />
-      <button className="global-button">Search</button>
+      <div
+        id="options"
+        className={clsx({
+          hide: !isOpen,
+        })}
+        tabIndex={1} // makes div to be able to receive focus
+        onBlur={() => handleClose()}
+      >
+        {options.map((option) => (
+          <div className="option" key={option.login} onClick={() => onClickUser(option.html_url)}>
+            <img src={option.avatar_url} alt="user-image" srcSet="" />
+            <span className="user-name">{option.login}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
