@@ -7,13 +7,15 @@ import { ToastProvider } from "contexts/toast";
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <ToastProvider>
-          <Routes />
-        </ToastProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <AuthProvider>
+          <ToastProvider>
+            <Routes />
+          </ToastProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </>
   );
 }
 
