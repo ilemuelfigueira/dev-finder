@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.19.3",
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
     "@types/jest": "26.0.15",
