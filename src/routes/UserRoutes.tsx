@@ -9,7 +9,7 @@ export function UserRoutes() {
   return (
     <>
       <ThemeProvider theme={userTheme}>
-        <Route path="/" exact component={UserHome} />
+        <Route exact path="/" component={UserHome} />
       </ThemeProvider>
     </>
   );

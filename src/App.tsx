@@ -8,13 +8,13 @@ import { ToastProvider } from "contexts/toast";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <AuthProvider>
-          <ToastProvider>
+      <AuthProvider>
+        <ToastProvider>
+          <BrowserRouter>
             <Routes />
-          </ToastProvider>
-        </AuthProvider>
-      </BrowserRouter>
+          </BrowserRouter>
+        </ToastProvider>
+      </AuthProvider>
     </>
   );
 }
